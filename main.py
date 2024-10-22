@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from dotenv import dotenv_values
+# from dotenv import dotenv_values
+import os
 
 app = Flask(__name__)
 
@@ -14,6 +15,5 @@ if __name__ == '__main__':
 
     # run() method of Flask class runs the application 
     # on the local development server.
-    config = dotenv_values(".env")
-    app.run(port=config["PORT"],debug=True)
+    app.run(port=os.environ.get("PORT", 8000))
     
